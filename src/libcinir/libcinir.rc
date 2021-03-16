@@ -1,0 +1,23 @@
+1 VERSIONINFO
+FILEVERSION     0,1,0,666
+PRODUCTVERSION  1,0,0,0
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    BEGIN
+      VALUE "CompanyName", "Roberto Metere"
+      VALUE "FileDescription", "Custom-Ini Reader"
+      VALUE "FileVersion", "0.1"
+      VALUE "InternalName", "cinir"
+      VALUE "LegalCopyright", "Roberto Metere"
+      VALUE "OriginalFilename", "cinir"
+      VALUE "ProductName", "cinir library"
+      VALUE "ProductVersion", "1.0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1252
+  END
+END
