@@ -43,6 +43,14 @@ public:
   void setName(const std::string name);
   
   /**
+   * Test if the section is global.
+   * A section is global if its name is the empty string (fields not preceded by section name).
+   * 
+   * @return <code>true</code> if the key is present
+   */
+  bool isGlobal() const;
+  
+  /**
    * Get the fields related to the section.
    * A field is a key-value pair, i.e. "key=value".
    * 

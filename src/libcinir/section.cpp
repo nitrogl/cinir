@@ -26,6 +26,12 @@ std::string Section::name() const
 }
 //-----------------------------------------------------------------------------
 
+bool Section::isGlobal() const
+{
+  return this->_name == "";
+}
+//-----------------------------------------------------------------------------
+
 void Section::setName(const std::string name)
 {
   this->_name = name;
