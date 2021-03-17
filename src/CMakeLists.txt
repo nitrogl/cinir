@@ -19,9 +19,9 @@ include (CheckIncludeFiles)
 project (${LIBRARY_NAME})
 
 # The version number
-set (LIBRARY_VERSION_RELEASE "0")
-set (LIBRARY_VERSION_MAJOR "1")
-set (LIBRARY_VERSION_MINOR "alpha")
+set (LIBRARY_VERSION_RELEASE "1")
+set (LIBRARY_VERSION_MAJOR "0")
+set (LIBRARY_VERSION_MINOR "0")
 
 # configure a header file to pass some of the CMake settings
 # to the source code
@@ -37,10 +37,6 @@ set (PLATFORM_INDEPENDENT_CODE_FLAG "-fPIC")
 if (BIT32)
   set (BIT32 "-m32") # cmake -DBIT32=1
 endif(BIT32)
-
-# Debug flags (Comment on dist)
-set (DEBUG_FLAG "-g -DDEBUG")
-set (OPTIMIZATION "0")
 
 # Detect the compilation system
 if (APPLE)
@@ -61,7 +57,8 @@ if (WIN32)
         set (PLATFORM_INDEPENDENT_CODE_FLAG "")
 endif (WIN32)
 
-set (CMAKE_CXX_FLAGS "-std=c++17 -Wall -Wextra -pedantic -O${OPTIMIZATION} ${BIT32} ${PLATFORM_INDEPENDENT_CODE_FLAG} ${DEBUG_FLAG} ${DEBUG_INFO_FLAG} ${ARCH_CFLAG}")
+set (CMAKE_CXX_FLAGS_DEBUG "-Wall -Wextra -pedantic -O0 -g -DDEBUG ${BIT32} ${PLATFORM_INDEPENDENT_CODE_FLAG} ${DEBUG_INFO_FLAG} ${ARCH_CFLAG}")
+set (CMAKE_CXX_FLAGS_RELEASE "-Wall -Wextra -pedantic -O3 ${BIT32} ${PLATFORM_INDEPENDENT_CODE_FLAG} ${ARCH_CFLAG}")
 
 # Apple stuff
 if(APPLE)
@@ -99,6 +96,8 @@ if(DOXYGEN_FOUND)
     COMMENT "Generating API documentation with Doxygen"
     VERBATIM
   )
+  
+  INSTALL( DIRECTORY ${CMAKE_BINARY_DIR}/doc/html DESTINATION share/doc/lib${LIBRARY_NAME} )
 else (DOXYGEN_FOUND)
     message (STATUS "Documentation will not be built - Doxygen not found")
 endif(DOXYGEN_FOUND)
