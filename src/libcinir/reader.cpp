@@ -9,6 +9,8 @@
 #include "exception.h"
 #include "utils.h"
 #include "reader.h"
+
+using namespace cinir;
 //-----------------------------------------------------------------------------
 
 Reader::Reader(const std::string fileName)

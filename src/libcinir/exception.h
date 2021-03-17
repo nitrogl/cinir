@@ -8,19 +8,16 @@
 #define EXCEPTION_H
 //-----------------------------------------------------------------------------
 
-#include "cinir.h"
-CINIR_NAMESPACE_CLASS(Exception)
-//-----------------------------------------------------------------------------
-
 #include <string>
 #include <exception>
 //-----------------------------------------------------------------------------
 
+namespace cinir {
 /**
  * This is an exception with generic message feedback, which is optional, and
  * which can be fatal, optional argument as well.
  */
-class cinir::Exception: public std::exception
+class Exception: public std::exception
 {
 protected:
   std::string message; ///< A specific message to give as a feedback.
@@ -88,4 +85,5 @@ public:
 };
 //-----------------------------------------------------------------------------
 
+} // namespace
 #endif // EXCEPTION_H

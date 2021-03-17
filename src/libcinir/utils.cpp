@@ -5,6 +5,8 @@
  */
 
 #include "utils.h"
+
+using namespace cinir;
 //-----------------------------------------------------------------------------
 
 void Utils::trim(std::string &s, const char* trimSpaces)

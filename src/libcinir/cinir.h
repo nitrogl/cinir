@@ -7,7 +7,6 @@
 #define CINIR_H
 
 #define LIB_CINIR_LIBRARY "Custom-Ini Reader. The library"
-#define CINIR_NAMESPACE_CLASS(c) namespace cinir { class c; } using namespace cinir;
 
 // ---------------------------------------------------------------------
 

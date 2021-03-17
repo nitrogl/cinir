@@ -7,6 +7,8 @@
 #include <iostream>
 #include "utils.h"
 #include "section.h"
+
+using namespace cinir;
 //-----------------------------------------------------------------------------
 
 Section::Section(const std::string name)

@@ -8,20 +8,17 @@
 #define LIBCINIR_Reader_H
 //-----------------------------------------------------------------------------
 
-#include "cinir.h"
-CINIR_NAMESPACE_CLASS(Reader)
-//-----------------------------------------------------------------------------
-
 #include <string>
 #include <vector>
 #include "section.h"
 //-----------------------------------------------------------------------------
 
+namespace cinir {
 /**
  * Automatically parses ini file.
  * Sections must be enclosed in square brackets, fields are key-value pairs separated by '=', and comments start with semicolon, ';'.
  */
-class cinir::Reader
+class Reader
 {
 public:
   /**
@@ -82,4 +79,5 @@ protected:
 };
 //-----------------------------------------------------------------------------
 
+} // namespace
 #endif // LIBCINIR_Reader_H

@@ -8,20 +8,17 @@
 #define LIBCINIR_Section_H
 //-----------------------------------------------------------------------------
 
-#include "cinir.h"
-CINIR_NAMESPACE_CLASS(Section)
-//-----------------------------------------------------------------------------
-
 #include <string>
 #include <map>
 #include "section.h"
 //-----------------------------------------------------------------------------
 
+namespace cinir {
 /**
  * A section contains fields (key-value pairs).
  * Sections must be enclosed by square brackets.
  */
-class cinir::Section
+class Section
 {
 public:
   /**
@@ -75,4 +72,5 @@ protected:
 };
 //-----------------------------------------------------------------------------
 
+} // namespace
 #endif // LIBCINIR_Section_H

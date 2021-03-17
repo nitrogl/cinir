@@ -6,6 +6,8 @@
 
 #include <iostream>
 #include "exception.h"
+
+using namespace cinir;
 //-----------------------------------------------------------------------------
 
 Exception::Exception(const std::string& message, const bool fatal, const int code) {
