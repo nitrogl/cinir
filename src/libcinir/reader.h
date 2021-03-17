@@ -14,7 +14,7 @@ CINIR_NAMESPACE_CLASS(Reader)
 
 #include <string>
 #include <vector>
-#include "Section.h"
+#include "section.h"
 //-----------------------------------------------------------------------------
 
 /**

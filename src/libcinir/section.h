@@ -14,7 +14,7 @@ CINIR_NAMESPACE_CLASS(Section)
 
 #include <string>
 #include <map>
-#include "Section.h"
+#include "section.h"
 //-----------------------------------------------------------------------------
 
 /**

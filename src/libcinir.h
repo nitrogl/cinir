@@ -9,8 +9,8 @@
 #include "libcinir/cinir.h"
 #include "libcinir/exception.h"
 #include "libcinir/utils.h"
-#include "libcinir/Section.h"
-#include "libcinir/Reader.h"
+#include "libcinir/section.h"
+#include "libcinir/reader.h"
 
 #define LIB_CUSTOM_INI_READER_LIBRARY "Custom-Ini Reader. The library"
 

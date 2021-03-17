@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include "utils.h"
-#include "Section.h"
+#include "section.h"
 //-----------------------------------------------------------------------------
 
 Section::Section(const std::string name)

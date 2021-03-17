@@ -8,7 +8,7 @@
 #include <fstream>
 #include "exception.h"
 #include "utils.h"
-#include "Reader.h"
+#include "reader.h"
 //-----------------------------------------------------------------------------
 
 Reader::Reader(const std::string fileName)
