@@ -3,9 +3,9 @@
 //-----------------------------------------------------------------------------
 
 int main(void) {
-  CIniReader reader("example.ini");
+  Reader reader("example.ini");
     
-  for (CIniSection *section: reader.sections()) {
+  for (Section *section: reader.sections()) {
     if (section->name() != "") {
       std::cout << std::endl << "[" << section->name() << "]" << std::endl;
     }

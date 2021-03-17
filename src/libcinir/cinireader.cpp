@@ -8,10 +8,10 @@
 #include <fstream>
 #include "exception.h"
 #include "utils.h"
-#include "cinireader.h"
+#include "Reader.h"
 //-----------------------------------------------------------------------------
 
-CIniReader::CIniReader(const std::string fileName)
+Reader::Reader(const std::string fileName)
 {
   if (fileName != "") {
     this->read(fileName);
@@ -19,21 +19,21 @@ CIniReader::CIniReader(const std::string fileName)
 }
 //-----------------------------------------------------------------------------
 
-CIniReader::~CIniReader()
+Reader::~Reader()
 {
-  for (CIniSection *s : this->_sections) {
+  for (Section *s : this->_sections) {
     delete(s);
   }
 }
 //-----------------------------------------------------------------------------
 
-void CIniReader::read(const std::string fileName)
+void Reader::read(const std::string fileName)
 {
   std::ifstream iniFile(fileName);
-  CIniSection *section;
+  Section *section;
   
   if (!iniFile.is_open()) {
-    throw Exception("CIniReader::read(). Cannot load ini file.", Exception::FATAL);
+    throw Exception("Reader::read(). Cannot load ini file.", Exception::FATAL);
   }
   
   // Read line by line
@@ -42,32 +42,32 @@ void CIniReader::read(const std::string fileName)
     std::size_t fieldAt;
     
     // Skip comments
-    CIniUtils::trim(line);
+    Utils::trim(line);
     if (line[0] == ';') {
       continue;
     }
     
     // Trim
-    CIniUtils::trim(line);
+    Utils::trim(line);
     
     // Parse ini line
     if (line.size() > 0) {
       if (line[0] == '[') { // Section found
         if (line[line.size() - 1] != ']') {
-          throw Exception("CIniReader::read(). Malformed section.", Exception::FATAL);
+          throw Exception("Reader::read(). Malformed section.", Exception::FATAL);
         }
         
         // Switch to this section
-        section = new CIniSection(line.substr(1, line.size() - 2));
+        section = new Section(line.substr(1, line.size() - 2));
         this->addSection(section);
       } else {
         fieldAt = line.find_first_of("=");
         if (fieldAt == 0 || fieldAt == line.size() - 1) {
-          throw Exception("CIniReader::read(). Malformed field.", Exception::FATAL);
+          throw Exception("Reader::read(). Malformed field.", Exception::FATAL);
         }
         if (fieldAt != std::string::npos) {
           if (section == nullptr) {
-            section = new CIniSection("");
+            section = new Section("");
             this->addSection(section);
           }
           section->addField(line.substr(0, fieldAt), line.substr(fieldAt + 1));
@@ -78,15 +78,15 @@ void CIniReader::read(const std::string fileName)
 }
 //-----------------------------------------------------------------------------
 
-std::vector<CIniSection*> CIniReader::sections() const
+std::vector<Section*> Reader::sections() const
 {
   return this->_sections;
 }
 //-----------------------------------------------------------------------------
 
-CIniSection * CIniReader::section(const std::string &name) const
+Section * Reader::section(const std::string &name) const
 {
-  for (CIniSection *s : this->_sections) {
+  for (Section *s : this->_sections) {
     if (s->name() == name) {
       return s;
     }
@@ -96,9 +96,9 @@ CIniSection * CIniReader::section(const std::string &name) const
 }
 //-----------------------------------------------------------------------------
 
-bool CIniReader::hasSection(const std::string &name) const
+bool Reader::hasSection(const std::string &name) const
 {
-  for (CIniSection *s : this->_sections) {
+  for (Section *s : this->_sections) {
     if (s->name() == name) {
       return true;
     }
@@ -108,17 +108,17 @@ bool CIniReader::hasSection(const std::string &name) const
 }
 //-----------------------------------------------------------------------------
 
-void CIniReader::addSection(CIniSection *section)
+void Reader::addSection(Section *section)
 {
   if (section == nullptr) {
     return;
   }
   
   if (this->hasSection(section->name())) {
-    CIniSection *s = this->section(section->name());
+    Section *s = this->section(section->name());
     
     if (s != section) {
-      std::cerr << "CIniReader::addSection(). WARNING: overwriting fields in section '" << s->name() << "'." << std::endl;
+      std::cerr << "Reader::addSection(). WARNING: overwriting fields in section '" << s->name() << "'." << std::endl;
       for (std::pair<std::string, std::string> p: section->fields()) {
         s->addField(p.first, p.second);
       }
@@ -130,9 +130,9 @@ void CIniReader::addSection(CIniSection *section)
 }
 //-----------------------------------------------------------------------------
 
-void CIniReader::print() const
+void Reader::print() const
 {
-  for (CIniSection *section: this->_sections) {
+  for (Section *section: this->_sections) {
     if (section->name() != "") {
       std::cout << std::endl << "[" << section->name() << "]" << std::endl;
     }

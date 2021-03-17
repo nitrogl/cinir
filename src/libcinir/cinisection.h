@@ -4,27 +4,31 @@
  * Copyright (C) 2016  Roberto Metere, Glasgow <roberto.metere@strath.ac.uk>
  */
 
-#ifndef LIBCINIR_CINISECTION_H
-#define LIBCINIR_CINISECTION_H
+#ifndef LIBCINIR_Section_H
+#define LIBCINIR_Section_H
+//-----------------------------------------------------------------------------
+
+#include "cinir.h"
+CINIR_NAMESPACE_CLASS(Section)
 //-----------------------------------------------------------------------------
 
 #include <string>
 #include <map>
-#include "cinisection.h"
+#include "Section.h"
 //-----------------------------------------------------------------------------
 
 /**
  * A section contains fields (key-value pairs).
  * Sections must be enclosed by square brackets.
  */
-class CIniSection
+class cinir::Section
 {
 public:
   /**
    * Create a section. It is delimited by square brackets.[]
    */
-  CIniSection(const std::string name = "");
-  virtual ~CIniSection();
+  Section(const std::string name = "");
+  virtual ~Section();
   
   /**
    * Sections are identified by names.
@@ -71,4 +75,4 @@ protected:
 };
 //-----------------------------------------------------------------------------
 
-#endif // LIBCINIR_CINISECTION_H
+#endif // LIBCINIR_Section_H

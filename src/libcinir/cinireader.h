@@ -4,20 +4,24 @@
  * Copyright (C) 2016  Roberto Metere, Glasgow <roberto.metere@strath.ac.uk>
  */
 
-#ifndef LIBCINIR_CINIREADER_H
-#define LIBCINIR_CINIREADER_H
+#ifndef LIBCINIR_Reader_H
+#define LIBCINIR_Reader_H
+//-----------------------------------------------------------------------------
+
+#include "cinir.h"
+CINIR_NAMESPACE_CLASS(Reader)
 //-----------------------------------------------------------------------------
 
 #include <string>
 #include <vector>
-#include "cinisection.h"
+#include "Section.h"
 //-----------------------------------------------------------------------------
 
 /**
  * Automatically parses ini file.
  * Sections must be enclosed in square brackets, fields are key-value pairs separated by '=', and comments start with semicolon, ';'.
  */
-class CIniReader
+class cinir::Reader
 {
 public:
   /**
@@ -25,12 +29,12 @@ public:
    * 
    * @param fileName the ini file name to read
    */
-  CIniReader(const std::string fileName = "");
+  Reader(const std::string fileName = "");
   
   /**
    * Destructor
    */
-  virtual ~CIniReader();
+  virtual ~Reader();
   
   /**
    * Read from the file provided and populate the internal structure.
@@ -42,7 +46,7 @@ public:
   /**
    * Get the sections in the ini file
    */
-  std::vector<CIniSection*> sections() const;
+  std::vector<Section*> sections() const;
   
   /**
    * Get a section by its name.
@@ -50,7 +54,7 @@ public:
    * @param name the section's name to look for
    * @return the section with given name
    */
-  CIniSection* section(const std::string &name) const;
+  Section* section(const std::string &name) const;
   
   /**
    * Tests if the ini file contains a section with given name.
@@ -65,7 +69,7 @@ public:
    * 
    * @param section the section to add
    */
-  void addSection(CIniSection *section);
+  void addSection(Section *section);
   
   /**
    * Print out the parsed ini file.
@@ -74,8 +78,8 @@ public:
   void print() const;
   
 protected:
-  std::vector<CIniSection*> _sections; ///< The sections parsed from the ini file
+  std::vector<Section*> _sections; ///< The sections parsed from the ini file
 };
 //-----------------------------------------------------------------------------
 
-#endif // LIBCINIR_CINIREADER_H
+#endif // LIBCINIR_Reader_H
