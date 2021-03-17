@@ -8,6 +8,10 @@
 #define LIBCINIR_UTILITIES_H
 //-----------------------------------------------------------------------------
 
+#include "cinir.h"
+CINIR_NAMESPACE_CLASS(Utils)
+//-----------------------------------------------------------------------------
+
 #include <string>
 //-----------------------------------------------------------------------------
 
@@ -15,7 +19,7 @@
  * Utility functions. It includes:
  *  - trim
  */
-class CIniUtils
+class cinir::Utils
 {
 public:
   /**
