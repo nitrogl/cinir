@@ -5,8 +5,8 @@
 add_library (${LIBRARY_NAME} SHARED
         exception.cpp
         utils.cpp
-        cinisection.cpp
-        cinireader.cpp
+        section.cpp
+        reader.cpp
         libcinir.rc
         )
 
@@ -29,9 +29,10 @@ else(WIN32)
 endif(WIN32)
 
 if (UNIX)
+include(GNUInstallDirs)
 install (
         TARGETS ${LIBRARY_NAME}
-        DESTINATION "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}"
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/"
         )
 
 # Installing headers for developers
