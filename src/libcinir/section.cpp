@@ -45,6 +45,12 @@ std::map<std::string, std::string> Section::fields() const
 }
 //-----------------------------------------------------------------------------
 
+std::string Section::field(const std::string key) const
+{
+  return this->_fields.at(key);
+}
+//-----------------------------------------------------------------------------
+
 bool Section::hasField(const std::string &key) const
 {
   std::string k = key;
