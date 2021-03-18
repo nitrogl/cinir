@@ -64,7 +64,7 @@ void Reader::read(const std::string fileName)
         this->addSection(section);
       } else {
         fieldAt = line.find_first_of("=");
-        if (fieldAt == 0 || fieldAt == line.size() - 1) {
+        if (fieldAt == 0) {
           throw Exception("Reader::read(). Malformed field.", Exception::FATAL);
         }
         if (fieldAt != std::string::npos) {
