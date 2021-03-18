@@ -4,8 +4,8 @@
  * Copyright (C) 2016  Roberto Metere, Glasgow <roberto.metere@strath.ac.uk>
  */
 
-#ifndef LIBCINIR_Section_H
-#define LIBCINIR_Section_H
+#ifndef LIBCINIR_SECTION_H
+#define LIBCINIR_SECTION_H
 //-----------------------------------------------------------------------------
 
 #include <string>
@@ -14,6 +14,7 @@
 //-----------------------------------------------------------------------------
 
 namespace cinir {
+
 /**
  * A section contains fields (key-value pairs).
  * Sections must be enclosed by square brackets.
@@ -59,6 +60,14 @@ public:
   std::map<std::string, std::string> fields() const;
   
   /**
+   * Get the value of a field with given key.
+   * 
+   * @param key the key of the field
+   * @return the value mapped with key
+   */
+  std::string field(const std::string key) const;
+  
+  /**
    * Test if any field with given key is set in the section
    * 
    * @param key the key to test
@@ -81,4 +90,4 @@ protected:
 //-----------------------------------------------------------------------------
 
 } // namespace
-#endif // LIBCINIR_Section_H
+#endif // LIBCINIR_SECTION_H

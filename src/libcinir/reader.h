@@ -4,8 +4,8 @@
  * Copyright (C) 2016  Roberto Metere, Glasgow <roberto.metere@strath.ac.uk>
  */
 
-#ifndef LIBCINIR_Reader_H
-#define LIBCINIR_Reader_H
+#ifndef LIBCINIR_READER_H
+#define LIBCINIR_READER_H
 //-----------------------------------------------------------------------------
 
 #include <string>
@@ -80,4 +80,4 @@ protected:
 //-----------------------------------------------------------------------------
 
 } // namespace
-#endif // LIBCINIR_Reader_H
+#endif // LIBCINIR_READER_H
