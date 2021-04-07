@@ -33,15 +33,20 @@ void Reader::read(const std::string fileName)
 {
   std::ifstream iniFile(fileName);
   Section *section;
+  std::size_t lineno;
   
   if (!iniFile.is_open()) {
-    throw Exception("Reader::read(). Cannot load ini file.", Exception::FATAL);
+    throw Exception("Custom-Ini Reader. Cannot load ini file '" + fileName + "'.", Exception::FATAL);
   }
   
   // Read line by line
   section = nullptr;
+  lineno = 0;
   for (std::string line; getline(iniFile, line);) {
     std::size_t fieldAt;
+    
+    // Line number
+    ++lineno;
     
     // Skip comments
     Utils::trim(line);
@@ -56,7 +61,7 @@ void Reader::read(const std::string fileName)
     if (line.size() > 0) {
       if (line[0] == '[') { // Section found
         if (line[line.size() - 1] != ']') {
-          throw Exception("Reader::read(). Malformed section.", Exception::FATAL);
+          throw Exception(fileName + ":" + std::to_string(lineno) + ". Malformed section.", Exception::FATAL);
         }
         
         // Switch to this section
@@ -65,7 +70,7 @@ void Reader::read(const std::string fileName)
       } else {
         fieldAt = line.find_first_of("=");
         if (fieldAt == 0) {
-          throw Exception("Reader::read(). Malformed field.", Exception::FATAL);
+          throw Exception(fileName + ":" + std::to_string(lineno) + ". Malformed field.", Exception::FATAL);
         }
         if (fieldAt != std::string::npos) {
           if (section == nullptr) {
