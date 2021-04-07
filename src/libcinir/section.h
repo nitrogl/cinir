@@ -65,7 +65,7 @@ public:
    * @param key the key of the field
    * @return the value mapped with key
    */
-  std::string field(const std::string key) const;
+  std::string field(const std::string &key) const;
   
   /**
    * Test if any field with given key is set in the section
