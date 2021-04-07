@@ -31,10 +31,11 @@ Reader::~Reader()
 
 void Reader::read(const std::string fileName)
 {
-  std::ifstream iniFile(fileName);
+  std::ifstream iniFile;
   Section *section;
   std::size_t lineno;
   
+  iniFile.open(fileName, std::ifstream::in);
   if (!iniFile.is_open()) {
     throw Exception("Custom-Ini Reader. Cannot load ini file '" + fileName + "'.", Exception::FATAL);
   }
