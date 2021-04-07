@@ -7,6 +7,7 @@
 #include <iostream>
 #include "utils.h"
 #include "section.h"
+#include "exception.h"
 
 using namespace cinir;
 //-----------------------------------------------------------------------------
@@ -45,9 +46,13 @@ std::map<std::string, std::string> Section::fields() const
 }
 //-----------------------------------------------------------------------------
 
-std::string Section::field(const std::string key) const
+std::string Section::field(const std::string &key) const
 {
-  return this->_fields.at(key);
+  try {
+    return this->_fields.at(key);
+  } catch (std::out_of_range &) {
+    throw Exception("Section::field(). Fatal error: field '" + key + "' not found.", Exception::FATAL);
+  }
 }
 //-----------------------------------------------------------------------------
 
