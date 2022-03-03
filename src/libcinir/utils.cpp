@@ -1,7 +1,7 @@
 /*
- * A bucket (vector)
+ * Utilities.
  * 
- * Copyright (C) 2015  Roberto Metere, Glasgow <roberto.metere@strath.ac.uk>
+ * Copyright (C) 2015  Roberto Metere, Newcastle <roberto@metere.it>
  */
 
 #include "utils.h"

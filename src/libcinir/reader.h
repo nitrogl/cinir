@@ -1,7 +1,7 @@
 /*
- * Generic exception.
+ * A Reader of INI files.
  * 
- * Copyright (C) 2016  Roberto Metere, Glasgow <roberto.metere@strath.ac.uk>
+ * Copyright (C) 2021  Roberto Metere, Newcastle <roberto@metere.it>
  */
 
 #ifndef LIBCINIR_READER_H

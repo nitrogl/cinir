@@ -36,7 +36,7 @@ install (
         )
 
 # Installing headers for developers
-install ( # main header (it should be enough to include)
+install ( # main header (it should be enough to include in programs)
         FILES "../lib${LIBRARY_NAME}.h"
         DESTINATION "${CMAKE_INSTALL_PREFIX}/include"
         )
