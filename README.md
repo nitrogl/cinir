@@ -21,8 +21,8 @@ int main(void) {
     if (!section->isGlobal()) {
       std::cout << std::endl << "[" << section->name() << "]" << std::endl;
     }
-    for (cinir::Field p: section->fields()) {
-      std::cout << fieldKey(p) << " = " << fieldValue(p) << std::endl;
+    for (cinir::Field field: section->fields()) {
+      std::cout << fieldKey(field) << " = " << fieldValue(field) << std::endl;
     }
   }
   

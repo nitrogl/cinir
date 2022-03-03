@@ -20,8 +20,8 @@ project (${LIBRARY_NAME})
 
 # The version number
 set (LIBRARY_VERSION_RELEASE "1")
-set (LIBRARY_VERSION_MAJOR "0")
-set (LIBRARY_VERSION_MINOR "2")
+set (LIBRARY_VERSION_MAJOR "1")
+set (LIBRARY_VERSION_MINOR "0")
 
 # configure a header file to pass some of the CMake settings
 # to the source code
