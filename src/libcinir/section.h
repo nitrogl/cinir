@@ -1,7 +1,7 @@
 /*
- * Generic exception.
+ * A Section.
  * 
- * Copyright (C) 2016  Roberto Metere, Glasgow <roberto.metere@strath.ac.uk>
+ * Copyright (C) 2021  Roberto Metere, Newcastle <roberto@metere.it>
  */
 
 #ifndef LIBCINIR_SECTION_H
@@ -10,7 +10,7 @@
 
 #include <string>
 #include <map>
-#include "section.h"
+#include "field.h"
 //-----------------------------------------------------------------------------
 
 namespace cinir {
@@ -57,7 +57,7 @@ public:
    * 
    * @return the fields as a map key-value
    */
-  std::map<std::string, std::string> fields() const;
+  FieldSet fields() const;
   
   /**
    * Get the value of a field with given key.
@@ -78,14 +78,21 @@ public:
   /**
    * Add a new field (key-value pair) to this section.
    * 
+   * @param field the field to add
+   */
+  void addField(const Field field);
+  
+  /**
+   * Add a new field (key-value pair) to this section.
+   * 
    * @param key the key to populate (lvalue)
    * @param value the value associated to the key (rvalue)
    */
   void addField(const std::string key, const std::string value);
   
 protected:
-  std::string _name;                          ///< The name of the section
-  std::map<std::string, std::string> _fields; ///< The fields (key-value pairs) in the section
+  std::string _name; ///< The name of the section
+  FieldSet _fields;  ///< The fields (key-value pairs) in the section
 };
 //-----------------------------------------------------------------------------
 

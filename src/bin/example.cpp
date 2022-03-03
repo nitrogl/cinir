@@ -9,9 +9,9 @@ int main(void) {
     if (!section->isGlobal()) {
       std::cout << std::endl << "[" << section->name() << "]" << std::endl;
     }
-    for (std::pair<std::string, std::string> p: section->fields()) {
-      std::cout << p.first << " = "; // This prints the key
-//       std::cout << p.second << std::endl; // This prints the value
+    for (cinir::Field p: section->fields()) {
+      std::cout << fieldKey(p) << " = ";
+      std::cout << fieldValue(p) << std::endl;
       
       // You could split the value in tokens
       std::vector<std::string> tokens = cinir::Utils::explode(p.second, ",");

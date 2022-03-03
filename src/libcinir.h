@@ -9,6 +9,7 @@
 #include "libcinir/cinir.h"
 #include "libcinir/exception.h"
 #include "libcinir/utils.h"
+#include "libcinir/field.h"
 #include "libcinir/section.h"
 #include "libcinir/reader.h"
 

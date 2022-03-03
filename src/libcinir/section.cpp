@@ -1,7 +1,7 @@
 /*
- * A bucket (vector)
+ * A Section.
  * 
- * Copyright (C) 2015  Roberto Metere, Glasgow <roberto.metere@strath.ac.uk>
+ * Copyright (C) 2021  Roberto Metere, Newcastle <roberto@metere.it>
  */
 
 #include <iostream>
@@ -40,7 +40,7 @@ void Section::setName(const std::string name)
 }
 //-----------------------------------------------------------------------------
 
-std::map<std::string, std::string> Section::fields() const
+FieldSet Section::fields() const
 {
   return this->_fields;
 }
@@ -61,6 +61,12 @@ bool Section::hasField(const std::string &key) const
   std::string k = key;
   Utils::trim(k);
   return this->_fields.contains(k);
+}
+//-----------------------------------------------------------------------------
+
+void Section::addField(const Field field)
+{
+  this->addField(field.first, field.second);
 }
 //-----------------------------------------------------------------------------
 
