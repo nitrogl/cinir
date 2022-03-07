@@ -22,7 +22,8 @@ int main(void) {
       std::cout << std::endl << "[" << section->name() << "]" << std::endl;
     }
     for (cinir::Field field: section->fields()) {
-      std::cout << fieldKey(field) << " = " << fieldValue(field) << std::endl;
+      auto [key, value] = field;
+      std::cout << key << " = " << value << std::endl;
     }
   }
   

@@ -19,9 +19,6 @@ namespace cinir {
  */
 typedef std::pair<std::string, std::string> Field;
 typedef std::map<std::string, std::string> FieldSet;
-
-#define fieldKey(a) a.first
-#define fieldValue(a) a.second
 //-----------------------------------------------------------------------------
 
 } // namespace
