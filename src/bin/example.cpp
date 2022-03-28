@@ -10,8 +10,8 @@ int main(void) {
       std::cout << std::endl << "[" << section->name() << "]" << std::endl;
     }
     for (cinir::Field field: section->fields()) {
-      auto [key, value] = field;
-      std::cout << key << " = ";
+      auto [name, value] = field;
+      std::cout << name << " = ";
       std::cout << value << std::endl;
       
       // You could split the value in tokens
