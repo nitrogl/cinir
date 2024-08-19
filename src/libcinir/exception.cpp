@@ -12,8 +12,6 @@ Exception::Exception(const std::string& message, const bool fatal, const int cod
   this->setMessage(message);
   this->setFatal(fatal);
   this->setExitCode(code);
-  
-  this->handleFatality();
 }
 //-----------------------------------------------------------------------------
 
